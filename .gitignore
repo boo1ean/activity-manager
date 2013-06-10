@@ -4,9 +4,3 @@ vendor
 /nbproject/private/
 /nbproject/
 /composer.phar
-!/runtime/
-/runtime/logs/
-!/vendor/
-/vendor/autoload.php
-/vendor/yiisoft/
-/vendor/composer/
