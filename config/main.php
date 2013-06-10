@@ -32,6 +32,20 @@ return array(
 //				)
 			),
 		),
+                'urlManager' => array(
+                        'enablePrettyUrl' => true,
+                        
+                        'rules' => array(
+                            '/' => 'site/index',
+                        )
+                ),
+                'db' => array(
+                        'class' => '\yii\db\Connection',
+                        'dsn' => 'mysql:host=localhost;dbname=activity_manager',
+                        'username' => 'root',
+                        'password' => 'root',
+                        'charset' => 'utf8',
+                ),
 	),
 	'params' => $params,
 );
