@@ -4,3 +4,4 @@ vendor
 /nbproject/private/
 /nbproject/
 /composer.phar
+.gitignore
