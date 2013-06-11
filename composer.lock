@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "54b4270968ed3e32a4c6718c2ba977d1af24b981"
+                "reference": "f9c97e364071157692faa197b0cfd838cbdc85e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/54b4270968ed3e32a4c6718c2ba977d1af24b981",
-                "reference": "54b4270968ed3e32a4c6718c2ba977d1af24b981",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/f9c97e364071157692faa197b0cfd838cbdc85e3",
+                "reference": "f9c97e364071157692faa197b0cfd838cbdc85e3",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +97,7 @@
                 "framework",
                 "yii"
             ],
-            "time": "2013-06-10 02:29:08"
+            "time": "2013-06-11 12:03:33"
         },
         {
             "name": "yiisoft/yii2-composer",

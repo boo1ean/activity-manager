@@ -7,6 +7,7 @@ return array(
 	'controllerPath' => dirname(__DIR__) . '/commands',
 	'controllerNamespace' => 'app\commands',
 	'modules' => array(
+            'MigrateController'
 	),
 	'components' => array(
 		'cache' => array(
@@ -23,7 +24,7 @@ return array(
 		),
                 'db' => array(
                         'class' => '\yii\db\Connection',
-                        'dsn' => 'mysql:host=localhost;dbname=yii2',
+                        'dsn' => 'mysql:host=localhost;dbname=activity_manager',
                         'username' => 'root',
                         'password' => 'root',
                         'charset' => 'utf8',
