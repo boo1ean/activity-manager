@@ -1,5 +1,5 @@
 <?php
-use yii\db\mysql\Schema;
+
 class m130613_122242_createEventMemberToUserKey extends \yii\db\Migration {
 
     public function up() {
