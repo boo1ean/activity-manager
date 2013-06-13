@@ -16,7 +16,7 @@ class m130613_113042_createEventTable extends \yii\db\Migration {
             'user_id' => Schema::TYPE_INTEGER,
             'event_start' => Schema::TYPE_DATETIME,
             'event_end' => Schema::TYPE_DATETIME,
-            'repeat_type' => Schema::TYPE_SMALLINT,
+            'repeat_type' => 'varchar(40)',
         ));
         
         return true;
