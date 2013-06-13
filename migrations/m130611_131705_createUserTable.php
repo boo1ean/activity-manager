@@ -15,8 +15,6 @@ class m130611_131705_createUserTable extends \yii\db\Migration {
             'last_name' => Schema::TYPE_STRING,
             'email' => Schema::TYPE_STRING,
         ));
-        
-        $this->createIndex('idx_user_name', 'user', 'email', true);
 
         return true;
     }
