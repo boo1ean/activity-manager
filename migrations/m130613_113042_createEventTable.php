@@ -10,7 +10,7 @@ class m130613_113042_createEventTable extends \yii\db\Migration {
             'created_date' => Schema::TYPE_DATETIME,
             'updated_date' => Schema::TYPE_DATETIME,
             'created_by' => Schema::TYPE_INTEGER,
-            'update_by' => Schema::TYPE_INTEGER,
+            'updated_by' => Schema::TYPE_INTEGER,
             'name' => Schema::TYPE_STRING,
             'description' => Schema::TYPE_TEXT,
             'user_id' => Schema::TYPE_INTEGER,

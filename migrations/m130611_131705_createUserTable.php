@@ -10,7 +10,7 @@ class m130611_131705_createUserTable extends \yii\db\Migration {
             'created_date' => Schema::TYPE_DATETIME,
             'updated_date' => Schema::TYPE_DATETIME,
             'created_by' => Schema::TYPE_INTEGER,
-            'update_by' => Schema::TYPE_INTEGER,
+            'updated_by' => Schema::TYPE_INTEGER,
             'first_name' => Schema::TYPE_STRING,
             'last_name' => Schema::TYPE_STRING,
             'email' => Schema::TYPE_STRING,
