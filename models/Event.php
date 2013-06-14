@@ -53,6 +53,15 @@ class Event extends ActiveRecord {
         );
     }
     
+    public function scenarios() {
+        $scenarios = parent::scenarios();
+        
+        return array(
+            'default' => $scenarios['default'],
+            'save' => $scenarios['default']
+        );
+    }
+    
     /**
      * Wiring up event Members (users) to Event through event_member table 
      * 
@@ -115,10 +124,10 @@ class Event extends ActiveRecord {
         $this['id'] = $eventId;
         
         if($this->validate(array('id'))){
-            return self::find($this['id'])->all();
+            return self::find($this['id']);
         }
         
-        return false;
+        return null;
     }
     
     public function save($runValidation = true, $attributes = null) {
