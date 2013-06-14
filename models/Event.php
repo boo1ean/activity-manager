@@ -62,6 +62,15 @@ class Event extends ActiveRecord {
         );
     }
     
+    public function beforeSave($insert) {
+        if (parent::beforeSave($insert)) {
+            $this->setScenario('save');
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     /**
      * Wiring up event Members (users) to Event through event_member table 
      * 
@@ -128,11 +137,6 @@ class Event extends ActiveRecord {
         }
         
         return null;
-    }
-    
-    public function save($runValidation = true, $attributes = null) {
-        $this->setScenario('save');
-        return parent::save($runValidation, $attributes);
     }
 }
 
