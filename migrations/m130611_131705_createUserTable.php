@@ -14,6 +14,7 @@ class m130611_131705_createUserTable extends \yii\db\Migration {
             'first_name' => Schema::TYPE_STRING,
             'last_name' => Schema::TYPE_STRING,
             'email' => Schema::TYPE_STRING,
+            'password' => Schema::TYPE_STRING,
         ));
 
         return true;
