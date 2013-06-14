@@ -7,7 +7,6 @@ return array(
 	'controllerPath' => dirname(__DIR__) . '/commands',
 	'controllerNamespace' => 'app\commands',
 	'modules' => array(
-            'MigrateController'
 	),
 	'components' => array(
 		'cache' => array(
