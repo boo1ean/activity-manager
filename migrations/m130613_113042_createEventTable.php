@@ -11,12 +11,10 @@ class m130613_113042_createEventTable extends \yii\db\Migration {
             'updated_time' => Schema::TYPE_TIMESTAMP,
             'created_by' => Schema::TYPE_INTEGER,
             'updated_by' => Schema::TYPE_INTEGER,
-            'name' => Schema::TYPE_STRING,
+            'title' => Schema::TYPE_STRING,
             'description' => Schema::TYPE_TEXT,
-            'user_id' => Schema::TYPE_INTEGER,
-            'event_start' => Schema::TYPE_DATETIME,
-            'event_end' => Schema::TYPE_DATETIME,
-            'repeat_type' => 'varchar(40)',
+            'start_time' => Schema::TYPE_DATETIME,
+            'end_time' => Schema::TYPE_DATETIME,
         ));
         
         return true;

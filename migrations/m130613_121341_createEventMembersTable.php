@@ -13,6 +13,7 @@ class m130613_121341_createEventMembersTable extends \yii\db\Migration {
             'updated_by' => Schema::TYPE_INTEGER,
             'event_id' => Schema::TYPE_INTEGER,
             'user_id' => Schema::TYPE_INTEGER,
+            'status' => Schema::TYPE_SMALLINT,
         ));
 
         return true;

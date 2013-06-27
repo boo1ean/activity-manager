@@ -18,9 +18,9 @@ class Event extends ActiveRecord {
     public $event_end;
     public $repeat_type;
     
-    const TYPE_REPEAT_DAILY = 'DAILY';
-    const TYPE_REPEAT_MONTHLY = 'MONTHLY';
-    const TYPE_REPEAT_YEARLY = 'YEARLY';
+//    const TYPE_REPEAT_DAILY = 'DAILY';
+//    const TYPE_REPEAT_MONTHLY = 'MONTHLY';
+//    const TYPE_REPEAT_YEARLY = 'YEARLY';
     
     static function tableName() {
         return 'event';
