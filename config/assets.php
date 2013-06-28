@@ -8,10 +8,6 @@ return array(
             'css/site.css',
         ),
 
-        'js' => array(
-
-        ),
-
         'depends' => array(
             'yii',
             'yii/bootstrap/responsive',
