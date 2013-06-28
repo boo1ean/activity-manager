@@ -2,6 +2,12 @@
 
 Yii2 application dedicated to manage your (sport) activity.
 
+## Setup
+
+Set write permissions for some stuff, fire from project root dir:
+
+    mkdir www/assets && chmod 777 -R www/assets runtime
+
 ## Entities
 
 1. User
