@@ -10,7 +10,7 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
-	public $username;
+	public $email;
 	public $password;
 	public $rememberMe = true;
 
@@ -20,8 +20,8 @@ class LoginForm extends Model
 	public function rules()
 	{
 		return array(
-			// username and password are both required
-			array('username, password', 'required'),
+			// email and password are both required
+			array('email, password', 'required'),
 			// password is validated by validatePassword()
 			array('password', 'validatePassword'),
 			// rememberMe must be a boolean value
@@ -35,20 +35,20 @@ class LoginForm extends Model
 	 */
 	public function validatePassword()
 	{
-		$user = User::findByUsername($this->username);
+		$user = User::findByUsername($this->email);
 		if (!$user || !$user->validatePassword($this->password)) {
 			$this->addError('password', 'Incorrect username or password.');
 		}
 	}
 
 	/**
-	 * Logs in a user using the provided username and password.
+	 * Logs in a user using the provided email and password.
 	 * @return boolean whether the user is logged in successfully
 	 */
 	public function login()
 	{
 		if ($this->validate()) {
-			$user = User::findByUsername($this->username);
+			$user = User::findByUsername($this->email);
 			Yii::$app->user->login($user, $this->rememberMe ? 3600*24*30 : 0);
 			return true;
 		} else {

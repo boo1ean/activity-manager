@@ -35,7 +35,7 @@ $this->registerAssetBundle('app');
                             array('label' => 'Contact', 'url' => array('/site/contact')),
                             Yii::$app->user->isGuest ?
                             array('label' => 'Login', 'url' => array('/site/login')) :
-                            array('label' => 'Logout (' . Yii::$app->user->identity->username .')' , 'url' => array('/site/logout')),
+                            array('label' => 'Logout (' . Yii::$app->user->identity->email .')' , 'url' => array('/site/logout')),
                             ),
                     )); ?>
                 </div>

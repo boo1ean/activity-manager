@@ -24,7 +24,7 @@ class SiteController extends Controller
 
     public function actionLogin() {
         $model = new LoginForm();
-        if ($this->populate($_POST, $model) && $model->login()) {
+        if ($model->load($_POST) && $model->login()) {
             Yii::$app->response->redirect(array('site/index'));
         } else {
             echo $this->render('login', array(
@@ -40,7 +40,7 @@ class SiteController extends Controller
 
     public function actionContact() {
         $model = new ContactForm;
-        if ($this->populate($_POST, $model) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load($_POST) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
             Yii::$app->response->refresh();
         } else {

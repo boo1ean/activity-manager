@@ -2,41 +2,23 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\Identity
+class User extends \yii\db\ActiveRecord implements \yii\web\Identity
 {
-	public $id;
-	public $username;
-	public $password;
-	public $authKey;
 
-	private static $users = array(
-		'100' => array(
-			'id' => '100',
-			'username' => 'admin',
-			'password' => 'admin',
-			'authKey' => 'test100key',
-		),
-		'101' => array(
-			'id' => '101',
-			'username' => 'demo',
-			'password' => 'demo',
-			'authKey' => 'test101key',
-		),
-	);
+    public static function tableName() {
+        return 'user';
+    }
 
 	public static function findIdentity($id)
 	{
-		return isset(self::$users[$id]) ? new self(self::$users[$id]) : null;
+        return self::find($id);
 	}
 
 	public static function findByUsername($username)
 	{
-		foreach (self::$users as $user) {
-			if (strcasecmp($user['username'], $username) === 0) {
-				return new self($user);
-			}
-		}
-		return null;
+		return self::find(array(
+            'email' => $username
+        ));
 	}
 
 	public function getId()
@@ -44,18 +26,12 @@ class User extends \yii\base\Object implements \yii\web\Identity
 		return $this->id;
 	}
 
-	public function getAuthKey()
-	{
-		return $this->authKey;
-	}
+	public function getAuthKey() {}
 
-	public function validateAuthKey($authKey)
-	{
-		return $this->authKey === $authKey;
-	}
+	public function validateAuthKey($authKey) {}
 
 	public function validatePassword($password)
 	{
-		return $this->password === $password;
+		return $this->password === md5($password);
 	}
 }

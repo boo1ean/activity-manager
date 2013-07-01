@@ -12,7 +12,7 @@ return array(
 
         'user' => array(
             'class' => 'yii\web\User',
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\User'
         ),
 
         'assetManager' => array(
@@ -44,6 +44,11 @@ return array(
             'password' => 'root',
             'charset'  => 'utf8'
         ),
+
+        'session' => array(
+            'class' => '\yii\web\DbSession',
+            'sessionTable'  => 'tbl_session'
+        )
     ),
 
     'params' => $params
