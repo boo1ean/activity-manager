@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
+use app\models\Event;
 
 /**
  * Class EventController is common controller for listing and CRUD events
@@ -16,8 +17,8 @@ class EventController extends Controller {
      * List of upcoming events in which user can take part or be invited
      */
     public function actionDashboard() {
-        // TODO: implement
-        echo "Upcoming events will be here";
+        $events = Event::getEventList(true);
+        echo $this->render('dashboard', array('events' => $events));
     }
 
     /**

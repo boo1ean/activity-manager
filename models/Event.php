@@ -6,17 +6,17 @@ use Yii;
 use yii\db\ActiveRecord;
 
 class Event extends ActiveRecord {
-    public $id;
-    public $create_time;
-    public $update_time;
-    public $created_by;
-    public $updated_by;
-    public $name;
-    public $description;
-    public $user_id;
-    public $event_start;
-    public $event_end;
-    public $repeat_type;
+//    public $id;
+//    public $create_time;
+//    public $update_time;
+//    public $created_by;
+//    public $updated_by;
+//    public $name;
+//    public $description;
+//    public $user_id;
+//    public $event_start;
+//    public $event_end;
+//    public $repeat_type;
     
 //    const TYPE_REPEAT_DAILY = 'DAILY';
 //    const TYPE_REPEAT_MONTHLY = 'MONTHLY';
@@ -109,20 +109,22 @@ class Event extends ActiveRecord {
     public function checkUser($userId){
         // TODO: Implemnet check on logged user after session will be implemented
     }
-    
+
+
     /**
      * Get full event list
-     * 
-     * @return type
+     *
+     * @param bool $onlyNew
+     * @return array
      */
-    public function getEventList($onlyNew = false){
-        $events = self::find();
+    public static function getEventList($onlyNew = false) {
+        $events = static::find();
         
-        if($onlyNew){
+        if ($onlyNew) {
             $events->where(array(
                 'or', 
-                'event_start >= NOW()',
-                'event_end >= NOW()'
+                'start_time >= NOW()',
+                'end_time >= NOW()'
             ));
         }
         
@@ -140,4 +142,3 @@ class Event extends ActiveRecord {
     }
 }
 
-?>
