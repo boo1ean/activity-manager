@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\RegisterForm;
+use app\models\User;
 use yii\web\Controller;
 use app\models\LoginForm;
 use app\models\ContactForm;
@@ -23,11 +25,12 @@ class SiteController extends Controller
     }
 
     public function actionLogin() {
+        Yii::$app->session->setFlash('success', 'User has been created!');
         $model = new LoginForm();
         if ($model->load($_POST) && $model->login()) {
             Yii::$app->response->redirect(array('site/index'));
         } else {
-            echo $this->render('login', array(
+            return $this->render('login', array(
                 'model' => $model,
             ));
         }
@@ -36,6 +39,16 @@ class SiteController extends Controller
     public function actionLogout() {
         Yii::$app->getUser()->logout();
         Yii::$app->getResponse()->redirect(array('site/index'));
+    }
+
+    public function actionRegister() {
+        $model = new RegisterForm();
+        if ($model->load($_POST)) {
+            if ($model->register()) {
+                return Yii::$app->response->redirect(array('site/login'));
+            }
+        }
+        return $this->render('register', array('model' => $model));
     }
 
     public function actionContact() {
