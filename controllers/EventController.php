@@ -65,5 +65,10 @@ class EventController extends Controller {
         // TODO: implement
         echo "Invite people";
     }
+
+    public function actionDetails($eventID = null) {
+        // TODO: implement
+        echo "Event details";
+    }
 }
 
