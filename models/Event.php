@@ -46,8 +46,8 @@ class Event extends ActiveRecord {
         return array(
             array('name, user_id, event_start, event_end, repeat_type', 'required'),
             array('name', 'string'),
-            array('user_id, id', 'integer'),
-            array('user_id', 'checkUser', 'on' => 'save'),
+            array('id', 'integer'),
+            array('checkUser', 'on' => 'save'),
             array('event_start, event_end', 'date', 'format' => 'Y-m-d H:i:s'),
             array('repeat_type', 'checkRepeatType'),
         );
