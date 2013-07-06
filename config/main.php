@@ -32,8 +32,20 @@ return array(
             'enablePrettyUrl' => true,
 
             'rules' => array(
-                '/' => 'site/index',
+                '/'                      => 'site/index',
+                'event/add'              => 'event/add',
+                'event/save'             => 'event/save',
+                'event/remove'           => 'event/remove',
+                'event/notify'           => 'event/notify',
+                'event/edit/<id:\d+>'    => 'event/edit',
+                'event/delete/<id:\d+>'  => 'event/delete',
+                'event/invite/<id:\d+>'  => 'event/invite',
+                'event/details/<id:\d+>' => 'event/details'
             )
+        ),
+
+        'errorHandler' => array(
+            'errorAction' => 'site/error'
         ),
 
         'db' => array(
