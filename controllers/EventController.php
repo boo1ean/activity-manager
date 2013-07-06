@@ -45,7 +45,6 @@ class EventController extends Controller {
      * Just save stuff here
      */
     public function actionSave() {
-        $b = 1;
         if (Yii::$app->getUser()->getIsGuest()) {
             Yii::$app->getResponse()->redirect(array('site/login'));
         } else {
@@ -55,13 +54,7 @@ class EventController extends Controller {
                 if ($eventForm->load($_POST) && $eventForm->saveEvent()) {
                     Yii::$app->getResponse()->redirect(array('event/dashboard'));
                 } else {
-                    $eventID = Yii::$app->getRequest()->getPost('id', null);
-                    $event = (!empty($eventID))
-                        ? Event::findByID($eventID)
-                        : new Event();
-
                     $eventForm->setAttributes($_POST);
-
                     echo $this->render('add', array('model'  => $eventForm));
                 }
 
@@ -75,7 +68,24 @@ class EventController extends Controller {
      * Remove event
      */
     public function actionRemove() {
-        // TODO: implement
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (Yii::$app->getRequest()->getIsPost()) {
+                $eventID = Yii::$app->getRequest()->getPost('id', null);
+                if (!empty($eventID)) {
+                    $event = Event::findByID($eventID);
+                    if ($event) {
+                        Event::deleteAll(array('id' => $eventID));
+                        Yii::$app->getResponse()->redirect(array('event/dashboard'));
+                    }
+                } else {
+                    Yii::$app->getResponse()->redirect(array('site/error'));
+                }
+            } else {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+        }
     }
 
     /**
@@ -119,8 +129,23 @@ class EventController extends Controller {
      * @param int|null $id
      */
     public function actionDelete($id = null) {
-        // TODO: implement
-        echo "Are you sure to delete this?";
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (!$id) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+
+            /**
+             * @var $event \app\models\Event
+             */
+            $event = Event::findByID($id);
+            if (!$event) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+
+            echo $this->render('delete', array('event' => $event));
+        }
     }
 
     /**

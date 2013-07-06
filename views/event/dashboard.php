@@ -14,7 +14,7 @@
     <tbody>
         <?php foreach($events as $event): ?>
             <tr>
-                <td><a href="#"><?php echo $event->title; ?></a></td>
+                <td><a href="<?php echo Html::url(array('event/details', 'id' => $event->id));?>"><?php echo $event->title; ?></a></td>
                 <td><?php echo $event->start_time; ?></td>
                 <td>
                     <?php if (!Yii::$app->getUser()->getIsGuest()
