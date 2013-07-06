@@ -59,7 +59,11 @@ return array(
         'session' => array(
             'class' => '\yii\web\DbSession',
             'sessionTable'  => 'tbl_session'
-        )
+        ),
+
+        'import' => array(
+            'application.libs.*',
+        ),
     ),
 
     'params' => $params

@@ -47,6 +47,7 @@ $this->registerAssetBundle('app');
 <?php echo Breadcrumbs::widget(array(
     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : array(),
 )); ?>
+    <?php $this->endBody(); ?>
     <?php echo $content; ?>
 
     <hr>
@@ -58,7 +59,6 @@ $this->registerAssetBundle('app');
             Template by <a href="http://twitter.github.io/bootstrap/">Twitter Bootstrap</a>
         </p>
     </div>
-    <?php $this->endBody(); ?>
 </div>
 </body>
 </html>
