@@ -77,7 +77,7 @@ class Datetimepicker extends Widget {
 
         $options = $this->options;
 
-        $value = (empty($options['value'])) ? null : $options['value'];
+        $value = (empty($options['value'])) ? $this->model->{$this->attribute} : $options['value'];
 
         $control .= Html::input(
             'text',
