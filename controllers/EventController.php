@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\EventForm;
 use yii\web\Controller;
 use app\models\Event;
 
@@ -25,8 +26,19 @@ class EventController extends Controller {
      * User is able to create his own events
      */
     public function actionAdd() {
-        // TODO: implement
-        echo "New event";
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            $eventForm = new EventForm();
+            $event     = new Event();
+
+            echo $this->render('add',
+                array(
+                    'model' => $eventForm,
+                    'event' => $event
+                )
+            );
+        }
     }
 
     /**

@@ -32,7 +32,7 @@ $this->registerAssetBundle('app');
                         'items' => array(
                             array('label' => 'Home', 'url' => array('/site/index')),
                             array('label' => 'About', 'url' => array('/site/about')),
-                            array('label' => 'Contact', 'url' => array('/site/contact')),
+                            array('label' => 'Dashboard', 'url' => array('/event/dashboard')),
                             Yii::$app->user->isGuest ?
                             array('label' => 'Login', 'url' => array('/site/login')) :
                             array('label' => 'Logout (' . Yii::$app->user->identity->email .')' , 'url' => array('/site/logout')),
