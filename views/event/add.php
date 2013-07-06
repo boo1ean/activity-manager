@@ -47,11 +47,11 @@ use app\libs\widgets\Datetimepicker;
 <script type="text/javascript">
     $(function() {
         $("#dtp-start_time").datetimepicker({
-            format: 'dd/MM/yyyy hh:mm:ss'
+            format: 'yyyy-MM-dd hh:mm:ss'
         });
 
         $("#dtp-end_time").datetimepicker({
-            format: 'dd/MM/yyyy hh:mm:ss'
+            format: 'yyyy-MM-dd hh:mm:ss'
         });
     });
 </script>
