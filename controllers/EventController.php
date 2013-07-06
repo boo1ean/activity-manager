@@ -60,12 +60,9 @@ class EventController extends Controller {
                         ? Event::findByID($eventID)
                         : new Event();
 
-                    echo $this->render('add',
-                        array(
-                            'model'  => $eventForm,
-                            'event' => $event
-                        )
-                    );
+                    $eventForm->setAttributes($_POST);
+
+                    echo $this->render('add', array('model'  => $eventForm));
                 }
 
             } else {
@@ -94,8 +91,26 @@ class EventController extends Controller {
      * @param int|null $id
      */
     public function actionEdit($id = null) {
-        // TODO: implement
-        echo "Edit event";
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (!$id) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+
+            /**
+             * @var $event \app\models\Event
+             */
+            $event = Event::findByID($id);
+            if (!$event) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            } else {
+                $eventForm = new EventForm();
+                $eventForm->setAttributes($event->toArray());
+
+                echo $this->render('add', array('model' => $eventForm));
+            }
+        }
     }
 
     /**

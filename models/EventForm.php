@@ -71,6 +71,8 @@ class EventForm extends Model {
                 $event->start_time  = $this->start_time;
                 $event->end_time    = $this->end_time;
                 $event->save();
+
+                return $event;
             } else {
                 return false;
             }

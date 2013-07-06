@@ -23,19 +23,11 @@ use app\libs\widgets\Datetimepicker;
         )
     );
     ?>
-    <?php echo $form->field($model, 'id')->hiddenInput(array('value' => $event->id)); ?>
-    <?php echo $form->field($model, 'title')->textInput(array('value' => $event->title)); ?>
-    <?php echo $form->field($model, 'description')->textArea(array('value' => $event->description)); ?>
-    <?php echo $form->field($model, 'start_time')
-                    ->widget(
-                        Datetimepicker::className(),
-                        array('options' => array('value' => $event->start_time)));
-    ?>
-
-    <?php echo $form->field($model, 'end_time')->widget(
-                        Datetimepicker::className(),
-                        array('options' => array('value' => $event->end_time)));
-    ?>
+    <?php echo $form->field($model, 'id')->hiddenInput(); ?>
+    <?php echo $form->field($model, 'title')->textInput(); ?>
+    <?php echo $form->field($model, 'description')->textArea(); ?>
+    <?php echo $form->field($model, 'start_time')->widget(Datetimepicker::className(), array()); ?>
+    <?php echo $form->field($model, 'end_time')->widget(Datetimepicker::className(), array()); ?>
 
     <div class="form-actions">
         <?php echo Html::submitButton('Save', array('class' => 'btn btn-primary')); ?>
