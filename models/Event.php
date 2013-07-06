@@ -112,7 +112,7 @@ class Event extends ActiveRecord {
      * @return null|\yii\db\ActiveQuery|ActiveRecord
      */
     public static function findByID($id) {
-        return static::find(array('id' => $id))->one();
+        return static::find(array('id' => $id));
     }
 }
 
