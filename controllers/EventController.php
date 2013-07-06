@@ -45,7 +45,33 @@ class EventController extends Controller {
      * Just save stuff here
      */
     public function actionSave() {
-        // TODO: implement
+        $b = 1;
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (Yii::$app->getRequest()->getIsPost()) {
+                $eventForm = new EventForm();
+
+                if ($eventForm->load($_POST) && $eventForm->saveEvent()) {
+                    Yii::$app->getResponse()->redirect(array('event/dashboard'));
+                } else {
+                    $eventID = Yii::$app->getRequest()->getPost('id', null);
+                    $event = (!empty($eventID))
+                        ? Event::findByID($eventID)
+                        : new Event();
+
+                    echo $this->render('add',
+                        array(
+                            'model'  => $eventForm,
+                            'event' => $event
+                        )
+                    );
+                }
+
+            } else {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+        }
     }
 
     /**

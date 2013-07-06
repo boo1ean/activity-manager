@@ -5,8 +5,9 @@ namespace app\behaviors;
 use yii\base\Behavior;
 use yii\db\Expression;
 use yii\db\ActiveRecord;
+use Yii;
 
-class AutoCreater extends Behavior {
+class AutoCreator extends Behavior {
 
     public $attributes = array(
         ActiveRecord::EVENT_BEFORE_INSERT => 'created_by',
@@ -30,7 +31,7 @@ class AutoCreater extends Behavior {
     }
 
     public function updateCreater($attributes) {
-        $userId = -1; // TODO: wire up geting userId from session
+        $userId = Yii::$app->getUser()->getId();
         foreach ($attributes as $attribute) {
             $this->owner->$attribute = $userId;
         }

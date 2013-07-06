@@ -6,23 +6,8 @@ use Yii;
 use yii\db\ActiveRecord;
 
 class Event extends ActiveRecord {
-//    public $id;
-//    public $create_time;
-//    public $update_time;
-//    public $created_by;
-//    public $updated_by;
-//    public $name;
-//    public $description;
-//    public $user_id;
-//    public $event_start;
-//    public $event_end;
-//    public $repeat_type;
-    
-//    const TYPE_REPEAT_DAILY = 'DAILY';
-//    const TYPE_REPEAT_MONTHLY = 'MONTHLY';
-//    const TYPE_REPEAT_YEARLY = 'YEARLY';
-    
-    static function tableName() {
+
+    public static function tableName() {
         return 'event';
     }
     
@@ -31,25 +16,25 @@ class Event extends ActiveRecord {
             'timestamp' => array(
                 'class' => 'yii\behaviors\AutoTimestamp',
             ),
-//            'creater' => array(
-//                'class' => 'app\behaviors\AutoCreater',
-//            ),
+            'creator' => array(
+                'class' => 'app\behaviors\AutoCreator',
+            ),
         );
     }
     
     /**
      * Rules for validation
      * 
-     * @return type
+     * @return array
      */
     public function rules(){
         return array(
-            array('name, user_id, event_start, event_end, repeat_type', 'required'),
+            /*array('name, user_id, event_start, event_end, repeat_type', 'required'),
             array('name', 'string'),
             array('id', 'integer'),
             array('checkUser', 'on' => 'save'),
             array('event_start, event_end', 'date', 'format' => 'Y-m-d H:i:s'),
-            array('repeat_type', 'checkRepeatType'),
+            array('repeat_type', 'checkRepeatType'),*/
         );
     }
     
@@ -91,17 +76,6 @@ class Event extends ActiveRecord {
     }
 
     /**
-     * Validation method. Check on valid event repeat type
-     * 
-     * @param string $repeatType
-     */
-    public function checkRepeatType($repeatType){
-        if(!empty($repeatType) && $repeatType != self::TYPE_REPEAT_DAILY && $repeatType != self::TYPE_REPEAT_MONTHLY && $repeatType != self::TYPE_REPEAT_YEARLY){
-            $this->addError('repeat_type', 'Incorrect repeat type.');
-        }
-    }
-    
-    /**
      * Validation method. Check on valid user_id
      * 
      * @param integer $userId
@@ -130,15 +104,15 @@ class Event extends ActiveRecord {
         
         return $events->all();
     }
-    
-    public function getEventById($eventId){
-        $this['id'] = $eventId;
-        
-        if($this->validate(array('id'))){
-            return self::find($this['id']);
-        }
-        
-        return null;
+
+    /**
+     * Find Event by ID
+     *
+     * @param $id
+     * @return null|\yii\db\ActiveQuery|ActiveRecord
+     */
+    public static function findByID($id) {
+        return static::find(array('id' => $id))->one();
     }
 }
 
