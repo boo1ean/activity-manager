@@ -1,13 +1,15 @@
+<?php
+    use yii\helpers\Html;
+?>
+
 <h3>Upcoming Events</h3>
 <table class="table table-condensed">
     <thead>
-        <tr>
-            <!--Click on title to see full event description-->
-            <td>Title</td>
-            <td>Start Time</td>
-            <!--Creator can edit/delete/invite-->
-            <td>Actions</td>
-        </tr>
+        <!--Click on title to see full event description-->
+        <th>Title</th>
+        <th>Start Time</th>
+        <!--Creator can edit/delete/invite-->
+        <th>Actions</th>
     </thead>
     <tbody>
         <?php foreach($events as $event): ?>
@@ -17,9 +19,11 @@
                 <td>
                     <?php if (!Yii::$app->getUser()->getIsGuest()
                             && Yii::$app->getUser()->getIdentity()->getId() == $event->created_by): ?>
-                        <a href="#">Invite</a>
-                        <a href="#">Edit</a>
-                        <a href="#">Delete</a>
+                        <a class="btn btn-info" href="<?php echo Html::url(array('event/invite', 'id' => $event->id));?>">
+                            <i class="icon-info-sign icon-white"></i>Invite
+                        </a>
+                        <a class="btn btn-warning" href="<?php echo Html::url(array('event/edit', 'id' => $event->id));?>"><i class="icon-edit icon-white"></i>Edit</a>
+                        <a class="btn btn-danger" href="<?php echo Html::url(array('event/delete', 'id' => $event->id));?>"><i class="icon-remove icon-white"></i>Delete</a>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -28,5 +32,7 @@
 </table>
 
 <?php if (!Yii::$app->getUser()->getIsGuest()): ?>
-    <a href="#">+Add new event</a>
+    <a class="btn btn-success" href="<?php echo Html::url(array('event/add')); ?>">
+        <i class="icon-plus icon-white"></i>Add new event
+    </a>
 <?php endif; ?>

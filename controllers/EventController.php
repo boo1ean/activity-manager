@@ -30,16 +30,6 @@ class EventController extends Controller {
     }
 
     /**
-     * Probably user is able to edit his event
-     *
-     * @param int|null $eventID
-     */
-    public function actionEdit($eventID = null) {
-        // TODO: implement
-        echo "Edit event";
-    }
-
-    /**
      * Just save stuff here
      */
     public function actionSave() {
@@ -47,11 +37,35 @@ class EventController extends Controller {
     }
 
     /**
+     * Remove event
+     */
+    public function actionRemove() {
+        // TODO: implement
+    }
+
+    /**
+     * Send invitation to user
+     */
+    public function actionNotify() {
+        // TODO: implement
+    }
+
+    /**
+     * Probably user is able to edit his event
+     *
+     * @param int|null $id
+     */
+    public function actionEdit($id = null) {
+        // TODO: implement
+        echo "Edit event";
+    }
+
+    /**
      * Also event can be deleted by user if something gonna wrong
      *
-     * @param int|null $eventID
+     * @param int|null $id
      */
-    public function actionDelete($eventID = null) {
+    public function actionDelete($id = null) {
         // TODO: implement
         echo "Are you sure to delete this?";
     }
@@ -59,14 +73,14 @@ class EventController extends Controller {
     /**
      * User is able to invite other users to take part in his event
      *
-     * @param int|null $eventID
+     * @param int|null $id
      */
-    public function actionInvite($eventID = null) {
+    public function actionInvite($id = null) {
         // TODO: implement
         echo "Invite people";
     }
 
-    public function actionDetails($eventID = null) {
+    public function actionDetails($id = null) {
         // TODO: implement
         echo "Event details";
     }

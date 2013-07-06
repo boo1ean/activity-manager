@@ -66,4 +66,8 @@ class SiteController extends Controller
     public function actionAbout() {
         echo $this->render('about');
     }
+
+    public function actionError() {
+        echo "Shit happend!";
+    }
 }
