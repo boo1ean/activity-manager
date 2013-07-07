@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\User;
+use app\models\InviteForm;
 use app\models\EventForm;
 use yii\web\Controller;
 use app\models\Event;
@@ -92,7 +94,34 @@ class EventController extends Controller {
      * Send invitation to user
      */
     public function actionNotify() {
-        // TODO: implement
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (Yii::$app->getRequest()->getIsPost()) {
+                $inviteForm = new InviteForm();
+
+                if ($inviteForm->load($_POST) && $inviteForm->sendInvitation()) {
+                    Yii::$app->getResponse()->redirect(array('event/dashboard'));
+                } else {
+                    $inviteForm->setAttributes($_POST);
+                    /**
+                     * @var $event \app\models\Event
+                     */
+                    $event = Event::findByID($inviteForm->event_id);
+                    $emailList = User::getEmailList();
+                    echo $this->render('invite',
+                        array(
+                            'model'     => $inviteForm,
+                            'event'     => $event,
+                            'emailList' => $emailList
+                        )
+                    );
+                }
+
+            } else {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+        }
     }
 
     /**
@@ -154,8 +183,34 @@ class EventController extends Controller {
      * @param int|null $id
      */
     public function actionInvite($id = null) {
-        // TODO: implement
-        echo "Invite people";
+        if (Yii::$app->getUser()->getIsGuest()) {
+            Yii::$app->getResponse()->redirect(array('site/login'));
+        } else {
+            if (!$id) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            }
+
+            /**
+             * @var $event \app\models\Event
+             */
+            $event = Event::findByID($id);
+            if (!$event) {
+                Yii::$app->getResponse()->redirect(array('site/error'));
+            } else {
+                $inviteForm = new InviteForm();
+                $inviteForm->event_id = $event->id;
+
+                $emailList = User::getEmailList();
+
+                echo $this->render('invite',
+                    array(
+                        'model'     => $inviteForm,
+                        'event'     => $event,
+                        'emailList' => $emailList
+                    )
+                );
+            }
+        }
     }
 
     public function actionDetails($id = null) {

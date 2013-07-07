@@ -42,4 +42,20 @@ class User extends \yii\db\ActiveRecord implements \yii\web\Identity
 	public function getAuthKey() {}
 
 	public function validateAuthKey($authKey) {}
+
+    public static function getEmailList() {
+        $sql = 'SELECT email FROM user';
+        $statement = static::findBySql($sql)->asArray();
+        $result = $statement->all();
+
+        $emailList = array();
+
+        array_walk($result,
+            function($item) use (&$emailList) {
+                $emailList[] = $item['email'];
+            }
+        );
+
+        return $emailList;
+    }
 }
