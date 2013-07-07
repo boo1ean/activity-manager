@@ -33,14 +33,16 @@ return array(
 
             'rules' => array(
                 '/'                      => 'site/index',
-                'event/add'              => 'event/add',
-                'event/save'             => 'event/save',
-                'event/remove'           => 'event/remove',
-                'event/notify'           => 'event/notify',
-                'event/edit/<id:\d+>'    => 'event/edit',
-                'event/delete/<id:\d+>'  => 'event/delete',
-                'event/invite/<id:\d+>'  => 'event/invite',
-                'event/details/<id:\d+>' => 'event/details'
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//                'event/add'              => 'event/add',
+//                'event/save'             => 'event/save',
+//                'event/remove'           => 'event/remove',
+//                'event/notify'           => 'event/notify',
+//                'event/edit/<id:\d+>'    => 'event/edit',
+//                'event/delete/<id:\d+>'  => 'event/delete',
+//                'event/invite/<id:\d+>'  => 'event/invite',
+//                'event/details/<id:\d+>' => 'event/details'
             )
         ),
 
