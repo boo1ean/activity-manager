@@ -35,6 +35,7 @@ return array(
                 '/'                      => 'site/index',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<controller:\w+>/' => '<controller>/index',
 //                'event/add'              => 'event/add',
 //                'event/save'             => 'event/save',
 //                'event/remove'           => 'event/remove',
