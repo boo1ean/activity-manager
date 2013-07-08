@@ -14,26 +14,22 @@ class AutoCreator extends Behavior {
         ActiveRecord::EVENT_BEFORE_UPDATE => 'updated_by',
     );
 
-    public function events() {
-        $events = array();
-        $behavior = $this;
-        
-        foreach ($this->attributes as $event => $attributes) {
-            if (!is_array($attributes)) {
-                $attributes = array($attributes);
-            }
-            
-            $events[$event] = function () use ($behavior, $attributes) {
-                $behavior->updateCreater($attributes);
-            };
+    public function events()
+    {
+        $events = $this->attributes;
+        foreach ($events as $i => $event) {
+            $events[$i] = 'updateCreater';
         }
         return $events;
     }
 
-    public function updateCreater($attributes) {
-        $userId = Yii::$app->getUser()->getId();
-        foreach ($attributes as $attribute) {
-            $this->owner->$attribute = $userId;
+    public function updateCreater($event) {
+        $attributes = isset($this->attributes[$event->name]) ? (array)$this->attributes[$event->name] : array();
+        if (!empty($attributes)) {
+            $userId = Yii::$app->getUser()->getId();
+            foreach ($attributes as $attribute) {
+                $this->owner->$attribute = $userId;
+            }
         }
     }
 
