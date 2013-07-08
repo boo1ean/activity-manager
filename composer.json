@@ -17,6 +17,9 @@
 		"php": ">=5.3.0",
 		"yiisoft/yii2": "dev-master",
 		"yiisoft/yii2-composer": "dev-master",
+		"twig/twig": "1.*",
+		"smarty/smarty":"3.1.*",
+		"smarty/smarty": "dev-master",
        "phpmailer/phpmailer": "dev-master"
 	},
 	"scripts": {
@@ -32,5 +35,9 @@
 		"yii-install-executable": [
 			"yii"
 		]
-	}
+	},
+    	"suggest": {
+		"twig/twig/": "Needed if you plan to use TwigViewRenderer.",
+		"smarty/smarty": "Needed if you plan to use SmartyViewRenderer."
+    	}
 }
