@@ -62,8 +62,8 @@ class Event extends ActiveRecord {
      * @return type
      */
     public function getMembers() {
-        return $this->hasMany('User', array('id' => 'event_id'))
-            ->viaTable('event_member', array('user_id' => 'id'));
+        return $this->hasMany('User', array('id' => 'user_id'))
+            ->viaTable('event_member', array('event_id' => 'id'));
     }
     
     /**
@@ -72,7 +72,7 @@ class Event extends ActiveRecord {
      * @return type
      */
     public function getUser() {
-        return $this->hasOne('User', array('user_id' => 'id'));
+        return $this->hasOne('User', array('id' => 'created_by'));
     }
 
     /**
