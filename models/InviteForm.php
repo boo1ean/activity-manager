@@ -3,6 +3,8 @@
 namespace app\models;
 
 use yii\base\Model;
+use app\libs\widgets\BitlyUrl;
+use app\libs\helpers\mail\Mailer;
 
 class InviteForm extends Model {
     public $event_id;
@@ -25,7 +27,13 @@ class InviteForm extends Model {
 
     public function sendInvitation() {
         if ($this->validate()) {
-            // TODO: send invitation with activation hash
+            $mailer = new Mailer();
+            $mailer->send(
+                $this->email,
+                'Binary Activity Manager Test',
+                 BitlyUrl::widget(array('url' => 'http://binary-studio.com', 'expand' => false))
+            );
+
             return true;
         }
 
