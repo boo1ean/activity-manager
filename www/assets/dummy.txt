@@ -1,0 +1,1 @@
+Git does not store empty folders! So you should always put dummy file into folder  that should exists!!!!!!!!

@@ -3,20 +3,166 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "91ba258de768b93025f86071f3bb4b84",
+    "hash": "98c44dbf86e519d94b5d2be2d7ab4019",
     "packages": [
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "c5e9f7873f6ed025dfc50ce481766287cfc3f18d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e9f7873f6ed025dfc50ce481766287cfc3f18d",
+                "reference": "c5e9f7873f6ed025dfc50ce481766287cfc3f18d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.pop3.php",
+                    "class.smtp.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2013-07-01 07:31:45"
+        },
+        {
+            "name": "smarty/smarty",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://smarty-php.googlecode.com/svn",
+                "reference": "/trunk/@4756"
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "distribution/libs/Smarty.class.php",
+                    "distribution/libs/SmartyBC.class.php",
+                    "distribution/libs/sysplugins/smarty_security.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Monte Ohrt",
+                    "email": "monte@ohrt.com"
+                },
+                {
+                    "name": "Uwe Tews",
+                    "email": "uwe.tews@googlemail.com"
+                },
+                {
+                    "name": "Rodney Rehm",
+                    "email": "rodney.rehm@medialize.de"
+                }
+            ],
+            "description": "Smarty - the compiling PHP template engine",
+            "homepage": "http://www.smarty.net",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2013-07-15 00:15:45"
+        },
+        {
+            "name": "twig/twig",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fabpot/Twig.git",
+                "reference": "c35d7f267ffed95060066a6edd610cb23e9e3e50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/c35d7f267ffed95060066a6edd610cb23e9e3e50",
+                "reference": "c35d7f267ffed95060066a6edd610cb23e9e3e50",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2013-07-15 15:12:47"
+        },
         {
             "name": "yiisoft/yii2",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "c5d9c42fcffb901cbf427b59ca354f9b4668633b"
+                "reference": "bdd4c25a757f181b59cf26b22cb17fc28fcbb24e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c5d9c42fcffb901cbf427b59ca354f9b4668633b",
-                "reference": "c5d9c42fcffb901cbf427b59ca354f9b4668633b",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/bdd4c25a757f181b59cf26b22cb17fc28fcbb24e",
+                "reference": "bdd4c25a757f181b59cf26b22cb17fc28fcbb24e",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +243,7 @@
                 "framework",
                 "yii"
             ],
-            "time": "2013-06-28 10:28:05"
+            "time": "2013-07-14 23:03:43"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -105,12 +251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "660ef5a4ea6945e6b754d009f6029b110ab4797d"
+                "reference": "69ffec54b61a3b78e68cb218c2cf2dec1c6fbbcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/660ef5a4ea6945e6b754d009f6029b110ab4797d",
-                "reference": "660ef5a4ea6945e6b754d009f6029b110ab4797d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/69ffec54b61a3b78e68cb218c2cf2dec1c6fbbcc",
+                "reference": "69ffec54b61a3b78e68cb218c2cf2dec1c6fbbcc",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +287,7 @@
                 "update",
                 "yii"
             ],
-            "time": "2013-06-06 11:51:55"
+            "time": "2013-07-11 15:26:57"
         }
     ],
     "packages-dev": [
@@ -153,7 +299,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "yiisoft/yii2": 20,
-        "yiisoft/yii2-composer": 20
+        "yiisoft/yii2-composer": 20,
+        "smarty/smarty": 20,
+        "phpmailer/phpmailer": 20
     },
     "platform": {
         "php": ">=5.3.0"
