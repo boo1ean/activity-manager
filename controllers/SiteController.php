@@ -11,15 +11,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    public function actions()
-    {
-        return array(
-            'captcha' => array(
-                'class' => 'yii\web\CaptchaAction',
-            ),
-        );
-    }
-
     public function actionIndex() {
         echo $this->render('index');
     }

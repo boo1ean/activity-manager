@@ -16,6 +16,15 @@ use app\models\Event;
  */
 class EventController extends Controller {
 
+    public function actions()
+    {
+        return array(
+            'captcha' => array(
+                'class' => 'yii\web\CaptchaAction',
+            ),
+        );
+    }
+
     /**
      * List of upcoming events in which user can take part or be invited
      */

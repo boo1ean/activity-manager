@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\libs\widgets\Datetimepicker;
+use yii\widgets\Captcha;
 
 /**
  * @var yii\base\View $this
@@ -28,6 +29,7 @@ use app\libs\widgets\Datetimepicker;
     <?php echo $form->field($model, 'description')->textArea(); ?>
     <?php echo $form->field($model, 'start_time')->widget(Datetimepicker::className(), array()); ?>
     <?php echo $form->field($model, 'end_time')->widget(Datetimepicker::className(), array()); ?>
+    <?php echo $form->field($model, 'captchaCode')->widget(Captcha::className(), array('options' => array('class' => 'input-medium'), 'captchaAction' => 'event/captcha')); ?>
 
     <div class="form-actions">
         <?php echo Html::submitButton('Save', array('class' => 'btn btn-primary')); ?>

@@ -10,6 +10,7 @@ class EventForm extends Model {
     public $description;
     public $start_time;
     public $end_time;
+    public $captchaCode;
 
     public function rules() {
         return array(
@@ -17,7 +18,8 @@ class EventForm extends Model {
             array('title, description, start_time, end_time', 'required'),
             array('title, description', 'string'),
             array('start_time', 'date', 'format' => 'Y-m-d H:i:s'),
-            array('end_time', 'date', 'format' => 'Y-m-d H:i:s')
+            array('end_time', 'date', 'format' => 'Y-m-d H:i:s'),
+            array('captchaCode', 'captcha', 'captchaAction' => 'event/captcha'),
         );
     }
 
