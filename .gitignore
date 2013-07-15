@@ -3,3 +3,5 @@ vendor
 /nbproject/private/
 /nbproject/
 /composer.phar
+/tests/_log/*
+!/tests/_log/dummy.txt
