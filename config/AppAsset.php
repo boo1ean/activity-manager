@@ -19,9 +19,14 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@www';
     public $css = array(
         'css/site.css',
+        'css/bootstrap-datetimepicker.min.css'
     );
+
     public $js = array(
+        'js/bootstrap.min.js',
+        'js/bootstrap-datetimepicker.min.js'
     );
+
     public $depends = array(
         'yii\web\YiiAsset',
         'yii\bootstrap\ResponsiveAsset',
