@@ -64,7 +64,7 @@
             "source": {
                 "type": "svn",
                 "url": "http://smarty-php.googlecode.com/svn",
-                "reference": "/trunk/@4756"
+                "reference": "/trunk/@4757"
             },
             "require": {
                 "php": ">=5.2"
@@ -100,7 +100,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2013-07-15 00:15:45"
+            "time": "2013-07-15 20:18:28"
         },
         {
             "name": "twig/twig",
@@ -157,12 +157,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "bdd4c25a757f181b59cf26b22cb17fc28fcbb24e"
+                "reference": "ae8f16449e830c1c951d076ed71eb38378b31b98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/bdd4c25a757f181b59cf26b22cb17fc28fcbb24e",
-                "reference": "bdd4c25a757f181b59cf26b22cb17fc28fcbb24e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ae8f16449e830c1c951d076ed71eb38378b31b98",
+                "reference": "ae8f16449e830c1c951d076ed71eb38378b31b98",
                 "shasum": ""
             },
             "require": {
@@ -243,7 +243,7 @@
                 "framework",
                 "yii"
             ],
-            "time": "2013-07-14 23:03:43"
+            "time": "2013-07-16 02:49:22"
         },
         {
             "name": "yiisoft/yii2-composer",

@@ -2,13 +2,12 @@
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use yii\widgets\Breadcrumbs;
-use yii\debug\Toolbar;
 
 /**
  * @var $this \yii\base\View
  * @var $content string
  */
-$this->registerAssetBundle('app');
+\app\config\AppAsset::register($this);
 ?>
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>

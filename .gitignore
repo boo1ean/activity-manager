@@ -1,4 +1,5 @@
-runtime
+runtime/*
+!runtime/cache/dummy.txt
 vendor
 /nbproject/private/
 /nbproject/
