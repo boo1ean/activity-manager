@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php echo $form->field($model, 'password')->passwordInput(); ?>
 	<?php echo $form->field($model, 'rememberMe')->checkbox(); ?>
 	<div class="form-actions">
-		<?php echo Html::submitButton('Login', null, null, array('class' => 'btn btn-primary')); ?>
+		<?php echo Html::submitButton('Login', array('id' => 'login'), null, array('class' => 'btn btn-primary')); ?>
         <?php echo Html::a('Create Account', '/site/register', array('class' => 'btn btn-primary')); ?>
 	</div>
 <?php ActiveForm::end(); ?>
